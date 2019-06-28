@@ -91,10 +91,10 @@ int main(int argc, const char * argv[]) {
 
         sort(s, s+n1, compare);
     
-    final_s << left << setw(22) << "学院" << left << setw(22) << "学号" << left << setw(15) << "姓名" << left << setw(16) << "平均成绩" << left << setw(15) << "联系方式" << endl;
+    final_s <<"  "<< left << setw(22) << "学院" << left << setw(22) << "学号" << left << setw(15) << "姓名" << left << setw(16) << "平均成绩" << left << setw(15) << "联系方式" << endl;
     for(int i=0; i<n1; i++)
     {
-        final_s << left << setw(28) << s[i].school << left << setw(19) << s[i].stu_num << left << setw(15) << s[i].name_s << left << setw(10) << s[i].ave << left << setw(15) << s[i].tel_num<<endl;
+        final_s << i+1 <<" "<< left << setw(28) << s[i].school << left << setw(19) << s[i].stu_num << left << setw(15) << s[i].name_s << left << setw(10) << s[i].ave << left << setw(15) << s[i].tel_num<<endl;
     }
     
     final_s.close();
