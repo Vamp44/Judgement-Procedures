@@ -48,7 +48,7 @@ int main(int argc, const char * argv[]) {
         stu >> s[i].school >> s[i].stu_num >> s[i].name_s >>s[i].tel_num;
         i++;
     }
-    int n2=1,j=0;
+    int n2=0,j=0;
     while(!judge.eof())
     {
         n2++;
