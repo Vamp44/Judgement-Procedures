@@ -13,25 +13,25 @@
 #include <iomanip>
 using namespace std;
 
-ifstream stu("/Users/nianqingren/Desktop/accurac/Judgement\ Procedures/student.txt");
-ifstream judge("/Users/nianqingren/Desktop/accurac/Judgement\ Procedures/judge.txt");
-ofstream final_s("/Users/nianqingren/Desktop/accurac/Judgement\ Procedures/final.txt");
+ifstream stu("/Users/nianqingren/Desktop/accurac/JudgementProcedures/student.txt");
+ifstream judge("/Users/nianqingren/Desktop/accurac/JudgementProcedures/judge.txt");
+ofstream final_s("/Users/nianqingren/Desktop/accurac/JudgementProcedures/final.txt");
 
-const int maxn = 20;
+const int maxn = 50;
 struct student
 {
     string school;
     string name_s;
     string stu_num;
     string tel_num;
-    double scor[7];
+    double scor[maxn];
     double ave;
 }s[maxn];
 
 struct judge
 {
     string name_j;
-    double scor[5];
+    double scor[maxn];
 }ju[maxn];
 
 bool compare(const student &s1, const student &s2)
@@ -40,7 +40,7 @@ bool compare(const student &s1, const student &s2)
 }
 
 int main(int argc, const char * argv[]) {
-    
+    // 引入数据
     int n1=0,i=0;
     while(!stu.eof())
     {
@@ -53,13 +53,12 @@ int main(int argc, const char * argv[]) {
     {
         n2++;
         getline(judge,ju[j].name_j,' ');
-        for(int i=0; i<5; i++)
+        for(int i=0; i<n1; i++)
         {
             judge >> ju[j].scor[i];
         }
         j++;
     }
-
     for(int i=0; i<n1; i++)
     {
         for(int j=0; j<n2; j++)
@@ -69,12 +68,11 @@ int main(int argc, const char * argv[]) {
     }
     stu.close();
     judge.close();
-    
+    // 判断
     for(int i=0; i<n1; i++)
     {
         double sum=0;
         double max=s[i].scor[0],min=s[i].scor[0];
-        
         for(int j=0; j<n2; j++)
         {
             if(s[i].scor[j]>max)
@@ -85,18 +83,18 @@ int main(int argc, const char * argv[]) {
             
             sum+=s[i].scor[j];
         }
-        
-        s[i].ave=(sum-min-max)/5;
+        s[i].ave=(sum-min-max)/(n2-2);
     }
-
         sort(s, s+n1, compare);
-    
-    final_s <<"  "<< left << setw(22) << "学院" << left << setw(22) << "学号" << left << setw(15) << "姓名" << left << setw(16) << "平均成绩" << left << setw(15) << "联系方式" << endl;
+        // 输出
+    cout << left << setw(11) <<"排名"<< left << setw(23) << "学院" << left << setw(23) << "学号" << left << setw(13) << "姓名" << left << setw(17) << "平均成绩" << left << setw(23) << "联系方式" << endl;
     for(int i=0; i<n1; i++)
     {
-        final_s << i+1 <<" "<< left << setw(28) << s[i].school << left << setw(19) << s[i].stu_num << left << setw(15) << s[i].name_s << left << setw(10) << s[i].ave << left << setw(15) << s[i].tel_num<<endl;
+        if(i<9)
+            cout << left << setw(8) << i+1 << left << setw(29) << s[i].school << left << setw(20) << s[i].stu_num << left << setw(15) << s[i].name_s << left << setw(11) << s[i].ave << left << setw(15) << s[i].tel_num<<endl;
+        else
+            cout << left << setw(8) << i+1 << left << setw(29) << s[i].school << left << setw(20) << s[i].stu_num << left << setw(15) << s[i].name_s << left << setw(11) << s[i].ave << left << setw(15) << s[i].tel_num<<endl;
     }
-    
     final_s.close();
     return 0;
 }
