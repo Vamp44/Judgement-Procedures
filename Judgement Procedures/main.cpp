@@ -13,9 +13,9 @@
 #include <iomanip>
 using namespace std;
 
-ifstream stu("/Users/nianqingren/Desktop/accurac/student.txt");
-ifstream judge("/Users/nianqingren/Desktop/accurac/judge.txt");
-ofstream final_s("/Users/nianqingren/Desktop/accurac/final.txt");
+ifstream stu("/Users/nianqingren/Desktop/accurac/Judgement\ Procedures/student.txt");
+ifstream judge("/Users/nianqingren/Desktop/accurac/Judgement\ Procedures/judge.txt");
+ofstream final_s("/Users/nianqingren/Desktop/accurac/Judgement\ Procedures/final.txt");
 
 const int maxn = 20;
 struct student
