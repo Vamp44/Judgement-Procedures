@@ -78,22 +78,42 @@ int main(int argc, const char * argv[]) {
         {
             if(s[i].scor[j]>max)
                 max=s[i].scor[j];
-            
             if(min>s[i].scor[j])
                 min=s[i].scor[j];
-            
             sum+=s[i].scor[j];
         }
         s[i].ave=(sum-min-max)/(n2-2);
     }
-        sort(s, s+n1, compare);
-    final_s << left << setw(12) <<"排名"<< left << setw(26) <<"隶属学院"<< left << setw(23) <<"学号"<< left << setw(13) <<"姓名"<< left << setw(18) <<"平均成绩"<< left << setw(19) <<"联系方式"<< endl;
+    sort(s, s+n1, compare);
+    final_s << left << setw(12) <<"排名";
+    final_s << left << setw(26) <<"隶属学院";
+    final_s << left << setw(23) <<"学号";
+    final_s << left << setw(13) <<"姓名";
+    final_s << left << setw(18) <<"平均成绩";
+    final_s << left << setw(19) <<"联系方式";
+    final_s << endl;
     for(int i=0; i<n1; i++)
     {
         if(i<9)
-            final_s <<"第"<< i+1 << left << setw(8) <<"名"<< left << setw(29) << s[i].school << left << setw(20) << s[i].stu_num << left << setw(15) << s[i].name_s << left << setw(11) << s[i].ave << left << setw(14) << s[i].tel_num << endl;
+        {
+            final_s <<"第"<< i+1 << left << setw(8) <<"名";
+            final_s << left << setw(29) << s[i].school ;
+            final_s << left << setw(20) << s[i].stu_num ;
+            final_s << left << setw(15) << s[i].name_s ;
+            final_s << left << setw(11) << s[i].ave ;
+            final_s << left << setw(14) << s[i].tel_num ;
+            final_s << endl;
+        }
         else
-            final_s <<"第"<< i+1 << left << setw(7) <<"名"<< left << setw(29) << s[i].school << left << setw(20) << s[i].stu_num << left << setw(15) << s[i].name_s << left << setw(11) << s[i].ave << left << setw(14) << s[i].tel_num << endl;
+        {
+            final_s <<"第"<< i+1 << left << setw(7) <<"名";
+            final_s << left << setw(29) << s[i].school ;
+            final_s << left << setw(20) << s[i].stu_num ;
+            final_s << left << setw(15) << s[i].name_s ;
+            final_s << left << setw(11) << s[i].ave ;
+            final_s << left << setw(14) << s[i].tel_num ;
+            final_s << endl;
+        }
     }
     final_s.close();
     return 0;
