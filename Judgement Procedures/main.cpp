@@ -11,13 +11,13 @@
 #include <string>
 #include <algorithm>
 #include <iomanip>
+#define maxn 50
 using namespace std;
 
 ifstream stu("/Users/nianqingren/Desktop/accurac/JudgementProcedures/student.txt");
 ifstream judge("/Users/nianqingren/Desktop/accurac/JudgementProcedures/judge.txt");
 ofstream final_s("/Users/nianqingren/Desktop/accurac/JudgementProcedures/final.csv");
 
-const int maxn = 50;
 struct student
 {
     string school;
@@ -90,7 +90,8 @@ int main(int argc, const char * argv[]) {
     final_s << left << setw(23) <<"学号";
     final_s << left << setw(13) <<"姓名";
     final_s << left << setw(18) <<"平均成绩";
-    final_s << left << setw(19) <<"联系方式";
+    final_s << left << setw(20) <<"联系方式";
+    final_s << left << setw(13) <<"备注";
     final_s << endl;
     for(int i=0; i<n1; i++)
     {
